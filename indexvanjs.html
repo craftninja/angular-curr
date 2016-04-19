@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Vanilla JS</title>
+  </head>
+  <body>
+    <a href="index.html">Check out the Angular version</a>
+    <h1>Vanilla JS version</h1>
+    <hr>
+    <input type="text" id="name" autofocus="true" placeholder="What is your name?">
+    <h2 id="greeting">Hi, my name is </h2>
+  </body>
+  <script type="text/javascript">
+    window.onload = function (){
+      var name = document.getElementById('name');
+      name.addEventListener("keyup", function(e) {
+        var greeting = document.getElementById('greeting')
+        greeting.innerHTML="Hi, my name is " + e.target.value
+      })
+    }
+  </script>
+</html>
