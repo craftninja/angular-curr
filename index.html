@@ -25,5 +25,21 @@
       <option value="not having animals">None</option>
     </select>
     <h3>I love {{animal}}</h3>
+    <hr>
+
+    <h1>Filters</h1>
+    <h3>How much is that pi in China? {{3.14159 | currency: '¥ '}}</h3>
+    <br>
+    <input type="text" ng-model="secret" placeholder="Tell me a secret...">
+    <h3>Yelling your secret: {{secret | uppercase}}</h3>
+    <h3>Whispering your secret: <i>{{secret | lowercase}}</i></h3>
+    <br>
+    <h3>rounding:</h3>
+    <ul>
+      <li>Round to three: {{3.14159265359 | number:3}}</li>
+      <li>Round to six:   {{3.14159265359 | number:6}}</li>
+      <li>Round to one:   {{3.14159265359 | number:1}}</li>
+    </ul>
+
   </body>
 </html>
