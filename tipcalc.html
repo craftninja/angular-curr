@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app>
+  <head>
+    <meta charset="utf-8">
+    <title>Angular Playground</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  </head>
+  <body>
+    <h1>Super useful tip calculator</h1>
+    <label for="subtotal">
+      How much did your meal cost?
+      <input type="number" ng-model="subtotal" name="subtotal" value="">
+    </label>
+    <br>
+    <label for="tip">
+      How much would you like to tip?
+      <select ng-model="tip" name="tip">
+        <option value="10">10%</option>
+        <option value="15">15%</option>
+        <option value="20">20%</option>
+        <option value="25">25%</option>
+      </select>
+    </label>
+    <h3>Subtotal: {{ subtotal | currency }}</h3>
+    <h3>Tip:      {{ tip && subtotal ? (tip / 100 * subtotal | currency) : "Please enter subtotal and tip" }}</h3>
+    <h3>Total:    {{ subtotal * ( 1 + tip / 100 ) | currency}}</h3>
+  </body>
+</html>
