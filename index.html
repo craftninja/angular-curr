@@ -6,10 +6,21 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
   </head>
   <body>
-    <a href="indexvanjs.html">Check out the vanilla JS version</a>
+    <a href="indexvanjs.html">Check out the vanilla JS version of the greeting</a>
     <h1>Angular version</h1>
     <hr>
     <input type="text" ng-model="name" autofocus="true" placeholder="What is your name?">
     <h2>Hi, my name is {{name}}</h2>
+    <hr>
+    <select ng-model="animal" class="" name="">
+      <option value="cats">Cats</option>
+      <option value="dogs">Dogs</option>
+      <option value="bunnies">Bunnies</option>
+      <option value="chickens">Chickens</option>
+      <option value="pigeons">Pigeons</option>
+      <option value="some other kind of animal">Something Else</option>
+      <option value="not having animals">None</option>
+    </select>
+    <h3>I love {{animal}}</h3>
   </body>
 </html>
