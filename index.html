@@ -62,6 +62,12 @@
         <option value="7">7</option>
       </select>
       <h5>Rounding <i>e</i> to {{roundE}} significant {{pluralize("digit", roundE)}}: {{ 2.7182818284590452353 | limitTo:roundE}}</h5>
+      <h5>
+        <ng-pluralize count="roundE"
+          when="{'1': 'You are rounding to one digit.',
+             'other': 'You are rounding to {{roundE}} digits.'}">
+        </ng-pluralize>
+      </h5>
     </div>
   </body>
 </html>
