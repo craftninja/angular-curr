@@ -44,7 +44,7 @@
     <h3>Yelling your secret: {{secret | uppercase}}</h3>
     <h3>Whispering your secret: <i>{{secret | lowercase}}</i></h3>
     <br>
-    <h3>rounding:</h3>
+    <h3>rounding pi:</h3>
     <ul>
       <li>Round to three: {{3.14159265359 | number:3}}</li>
       <li>Round to six:   {{3.14159265359 | number:6}}</li>
@@ -69,6 +69,9 @@
              'other': 'You are rounding to {{roundE}} digits.'}">
         </ng-pluralize>
       </h5>
+      <hr>
+      <h3>Within the ng-controller, what is 'this'?</h3>
+      <h5>{{this}}</h5>
     </div>
   </body>
 </html>
