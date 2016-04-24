@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html ng-app="madLibs">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <script type="text/javascript">
+
+      angular.module('madLibs', [])
+      .controller('MadFormController', function($scope) {
+        $scope.hideMad = true;
+        $scope.onSubmit = function() {
+          $scope.hideForm = true;
+          $scope.hideMad = false;
+        };
+        $scope.playAgain = function() {
+          $scope.hideForm = false;
+          $scope.hideMad = true;
+          $scope.madlib = {}
+        }
+      });
+
+    </script>
+  </head>
+  <body class="container" ng-controller="MadFormController">
+    <form class="" ng-submit="onSubmit()" ng-hide="hideForm">
+      <h1 class="page-header">Please fill out the following:</h1>
+      <div class="form-group">
+        <label for="boys_name">
+          Boy's name
+          <input type="text" class="form-control" id="boys_name" ng-model="madlib.boys_name">
+        </label>
+      </div>
+      <div class="form-group">
+        <label for="adjective">
+          Adjective
+          <input type="text" class="form-control" id="adjective" ng-model="madlib.adjective">
+        </label>
+      </div>
+      <div class="form-group">
+        <label for="plural_noun1">
+          Plural noun
+          <input type="text" class="form-control" id="plural_noun1" ng-model="madlib.plural_noun1">
+        </label>
+      </div>
+      <div class="form-group">
+        <label for="plural_noun2">
+          Plural noun
+          <input type="text" class="form-control" id="plural_noun2" ng-model="madlib.plural_noun2">
+        </label>
+      </div>
+      <div class="form-group">
+        <label for="plural_noun3">
+          Plural noun
+          <input type="text" class="form-control" id="plural_noun3" ng-model="madlib.plural_noun3">
+        </label>
+      </div>
+      <div class="form-group">
+        <label for="insect">
+          Insect (plural)
+          <input type="text" class="form-control" id="insect" ng-model="madlib.insect">
+        </label>
+      </div>
+      <div class="form-group">
+        <label for="verb">
+          Verb (ending in 's')
+          <input type="text" class="form-control" id="verb" ng-model="madlib.verb">
+        </label>
+      </div>
+      <input type="submit" class="btn btn-danger" value="Generate">
+    </form>
+    <div class="" ng-hide="hideMad">
+      <h1 class="page-header">Mad with the Libs</h1>
+      <h3>I'm in love with <span>{{madlib.boys_name}}</span>. He's so <span>{{madlib.adjective}}</span>! He has big flat <span>{{madlib.plural_noun1}}</span>, and when our <span>{{madlib.plural_noun2}}</span> meet, I get <span>{{madlib.insect}}</span> in my stomach. I've fallen for him like a ton of <span>{{madlib.plural_noun3}}</span>, and he <span>{{madlib.verb}}</span> for me, too.</h3>
+      <input type="button" class="btn btn-danger" value="Play again?" ng-click="playAgain()">
+    </div>
+
+  </body>
+</html>
