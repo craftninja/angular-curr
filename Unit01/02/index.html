@@ -15,6 +15,17 @@
           <input type="text" class="u-full-width" placeholder="What is your favorite book?" ng-model="book" ng-init="book='Preserving Wild Foods'">
         </div>
       </div>
+      <h3>It is about: <span ng-bind="subject"></span></h3>
+      <div class="row">
+        <div class="six columns">
+          <label for="subject">"{{book}}" Subject</label>
+          <select class="u-full-width" id="subject" ng-model="subject">
+            <option value="dragons">Dragons</option>
+            <option value="food">Food</option>
+            <option value="code">Code</option>
+          </select>
+        </div>
+      </div>
     </div>
   </body>
 </html>
