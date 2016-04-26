@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app>
+  <head>
+    <meta charset="utf-8">
+    <title>Data Binding</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" media="screen" title="no title" charset="utf-8">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"> </script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Data Binding</h1>
+      <h3>My favorite book is: {{book}}</h3>
+      <div class="row">
+        <div class="six columns">
+          <input type="text" class="u-full-width" placeholder="What is your favorite book?" ng-model="book" ng-init="book='Preserving Wild Foods'">
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
