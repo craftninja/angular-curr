@@ -28,7 +28,12 @@
   </head>
   <body class="container" ng-controller="MadFormController">
     <form class="" ng-submit="onSubmit()" ng-hide="hideForm">
-      <h1 class="page-header">Please fill out the following:</h1>
+      <div class="page-header">
+        <div class="pull-right">
+          <a href="/" class="btn btn-success">That other page</a>
+        </div>
+        <h1>Please fill out the following:</h1>
+      </div>
       <div class="form-group">
         <label for="boys_name">
           Boy's name
