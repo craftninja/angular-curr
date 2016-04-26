@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="books">
+  <head>
+    <meta charset="utf-8">
+    <title>Angular MVC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" media="screen" title="no title" charset="utf-8">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"> </script>
+    <script type="text/javascript">
+      angular.module('books', [])
+      .controller('BookController', function ($scope) {
+        $scope.book="Preserving Wild Foods";
+        $scope.subject="food";
+      })
+    </script>
+  </head>
+  <body>
+    <div class="container" ng-controller="BookController">
+      <h1>Angular MVC</h1>
+      <h3>My favorite book is: {{book}}</h3>
+      <div class="row">
+        <div class="six columns">
+          <input type="text" class="u-full-width" placeholder="What is your favorite book?" ng-model="book">
+        </div>
+      </div>
+      <h3>It is about: <span ng-bind="subject"></span></h3>
+      <div class="row">
+        <div class="six columns">
+          <label for="subject">"{{book}}" Subject</label>
+          <select class="u-full-width" id="subject" ng-model="subject">
+            <option value="dragons">Dragons</option>
+            <option value="food">Food</option>
+            <option value="code">Code</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
