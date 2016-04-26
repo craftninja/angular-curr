@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app='builtInDir'>
+  <head>
+    <meta charset="utf-8">
+    <title>Built in Directives</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" media="screen" title="no title" charset="utf-8">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"> </script>
+    <link rel="stylesheet" href="/Unit01/05/style.css" media="screen" title="no title" charset="utf-8">
+    <script type="text/javascript">
+      angular.module('builtInDir', [])
+      .controller('SignUpController', function ($scope) {
+        $scope.password = ""
+        $scope.pluralize = function(word, number) {
+          if (number != '1') {
+            return word + 's';
+          } else {
+            return word
+          }
+        }
+      })
+    </script>
+
+  </head>
+  <body ng-init="cardSuits=[
+    {name: 'Spades',   code: '&spades;'},
+    {name: 'Clubs',    code: '&clubs;'},
+    {name: 'Hearts',   code: '&hearts;'},
+    {name: 'Diamonds', code: '&diams;'}]">
+    <div class="container">
+      <h1>Built in Directives</h1>
+      <div ng-controller="SignUpController">
+        <h3>Sign-up Page</h3>
+        <div class="row">
+          <div class="six columns">
+            <input class="u-full-width" type="password" ng-model="password">
+            <p ng-class="{green: password.length > 5, red: password.length < 6}">Your password is {{password.length}} {{pluralize('character', password.length)}} long</p>
+            <p ng-show="password.length < 6">Your password is not long enough!</p>
+            <input ng-hide="password.length < 6" type="button" value="Sign Up!">
+          </div>
+        </div>
+      </div>
+      <h3>Fibonacci Sequence</h3>
+      <div ng-init="numbers=[0, 1, 1, 2, 3, 5, 8, 13]">
+        <ul>
+          <li ng-repeat="number in numbers track by $index" ng-bind="number"></li>
+        </ul>
+      </div>
+      <h3>Suits</h3>
+      <ul>
+        <li ng-repeat="suit in cardSuits" ng-bind="suit.code"></li>
+      </ul>
+    </div>
+  </body>
+</html>
