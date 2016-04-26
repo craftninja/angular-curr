@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="filters">
+  <head>
+    <meta charset="utf-8">
+    <title>Expressions and Filters</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" media="screen" title="no title" charset="utf-8">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"> </script>
+    <script type="text/javascript">
+      angular.module('filters', [])
+      .controller('JsonController', function($scope) {
+        $scope.jsonObject = {
+          "title":"English Angora",
+          "author":"Emily",
+          "imageURL":"https://upload.wikimedia.org/wikipedia/commons/f/f3/Englishangora.jpg",
+          "description":"English Angoras are awesome",
+          "postedAt":1461620748485,
+          "comments":[
+            {
+              "commenter":"Amber",
+              "comment":"I need some of his fiber to spin!"
+            }
+          ],
+          "votes":0
+        }
+      })
+    </script>
+  </head>
+  <body>
+    <div class="container" ng-controller="JsonController">
+      <h1>Expressions and Filters</h1>
+      <h3>Raw JSON: </h3>
+      <pre><code>{{jsonObject}}</code></pre>
+      <h3>Pretty JSON: </h3>
+      <pre><code>{{ jsonObject | json }}</code></pre>
+    </div>
+  </body>
+</html>
