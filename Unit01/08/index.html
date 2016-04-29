@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html ng-app="events">
+  <head>
+    <meta charset="utf-8">
+    <title>Intro to Events</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" media="screen" title="no title" charset="utf-8">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"> </script>
+    <link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8">
+    <script type="text/javascript">
+      angular.module('events', [])
+      .controller('EventsController', function($scope) {
+        $scope.pong = {};
+        $scope.pong.player1score = 0;
+        $scope.pong.player2score = 0;
+        $scope.pong.player1serving = true;
+
+        $scope.pong.incrementScore = function (scoreToInc) {
+          if (!$scope.pong.gameOver) {
+            $scope.pong[scoreToInc] += 1;
+            if ($scope.pong.player1score == 11 || $scope.pong.player3score == 11) {
+              $scope.pong.gameOver = true;
+            } else if (($scope.pong.player1score + $scope.pong.player2score) % 2 == 0) {
+              $scope.pong.player1serving = !$scope.pong.player1serving
+            }
+          }
+        };
+
+        $scope.pong.newGame = function () {
+          $scope.pong.player1score = 0;
+          $scope.pong.player2score = 0;
+          $scope.pong.player1serving = true;
+          $scope.pong.gameOver = false;
+        }
+
+        $scope.reversify = function () {
+          var reversedWord = "";
+          for (var i = $scope.word.length-1; i >= 0; i--) {
+            reversedWord += $scope.word[i];
+          };
+          $scope.word = reversedWord;
+        };
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container" ng-controller="EventsController">
+      <h1>Intro to Events</h1>
+      <h3>Ping Pong Scorer</h3>
+      <div class="row center">
+
+        <div class="six columns">
+          <div class="u-full-width greybg" ng-click="pong.incrementScore('player1score')" ng-class="{greenbg: pong.gameOver && pong.player1score > pong.player2score, redbg: pong.gameOver && pong.player1score < pong.player2score}">
+            <h3>Player 1</h3>
+            <h1 ng-bind="pong.player1score"></h1>
+            <h3 class="bugsquash"><span ng-show="pong.player1serving">Serving!</span></h3>
+          </div>
+        </div>
+
+        <div class="six columns">
+          <div class="u-full-width greybg" ng-click="pong.incrementScore('player2score')" ng-class="{greenbg: pong.gameOver && pong.player2score > pong.player1score, redbg: pong.gameOver && pong.player2score < pong.player1score}">
+            <h3>Player 2</h3>
+            <h1 ng-bind='pong.player2score'></h1>
+            <h3 class="bugsquash"><span ng-hide="pong.player1serving">Serving!</span></h3>
+          </div>
+        </div>
+      </div>
+      <div class="row center" ng-show="pong.gameOver">
+        <input type="button" ng-click="pong.newGame()" value="Play again?">
+      </div>
+      <h3>Word Reverser</h3>
+      {{word}}
+      <label for="word">Word</label>
+      <input type="text" id="word" ng-model="word">
+      <input type="button" value="Reverse" ng-click="reversify()">
+    </div>
+  </body>
+</html>
