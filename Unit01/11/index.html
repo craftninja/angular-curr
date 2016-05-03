@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html ng-app="redditClone">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="app.js">
+
+    </script>
+  </head>
+  <body ng-controller="PostController">
+    <nav class="navbar navbar-default">
+      <div class="container container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Reddit Clone</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="#">+ Submit Post</a></li>
+          </ul>
+          <div class="navbar-form navbar-left">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <div class="form-group">
+              <label for="sortBy">Sort By: </label>
+              <select id="sortBy" class="form-control" name="">
+                <option value="votes">Votes</option>
+                <option value="date">Date</option>
+                <option value="title">Title</option>
+              </select>
+            </div>
+          </div>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <div class="container">
+      <div class="well row" ng-repeat="post in posts">
+        <div class="col-md-3 thumbnail">
+          <img ng-src="{{post.image}}" alt="{{post.title}}" />
+        </div>
+        <div class="col-md-9">
+          <div class="row">
+            <div class="col-md-6">
+              <h4>{{post.title}} | <span class="glyphicon glyphicon-arrow-up" aria-hidden="true" ng-click="upvote(post)"></span> <span class="glyphicon glyphicon-arrow-down" aria-hidden="true" ng-click="downvote(post)"></span> <span ng-bind="post.votes" class="danger"></span></h4>
+            </div>
+            <div class="col-md-6">
+              <h5 class="pull-right">
+                by {{post.author}}
+              </h5>
+            </div>
+          </div>
+          <div class="row">
+            <p class="col-md-12">
+              {{post.description}}
+            </p>
+          </div>
+          <div class="row">
+            <p class="col-md-12">
+              <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> {{post.date}} |
+              <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> {{post.comments.length + ' ' + pluralize(post.comments.length, 'comment')}} |
+              <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Add comment
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
