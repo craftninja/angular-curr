@@ -16,7 +16,7 @@ angular.module('redditClone', [])
       image: 'http://i.imgur.com/pcK1WSw.jpg',
       description: 'Angora bunnies are awesome!',
       votes: 4,
-      date: 1461620748485,
+      date: new Date(2016, 03, 02),
       comments: []
     },
     {
@@ -25,7 +25,7 @@ angular.module('redditClone', [])
       image: 'http://i.imgur.com/1pZLbDi.jpg',
       description: 'Silkie Bantams... they are chickens!?!?!',
       votes: 0,
-      date: 1461620748485,
+      date: new Date(2016, 01, 03),
       comments: []
     },
     {
@@ -34,7 +34,7 @@ angular.module('redditClone', [])
       image: 'http://i.imgur.com/zrSL8XK.jpg',
       description: 'Ugh, WTF is that',
       votes: -3,
-      date: 1461620748485,
+      date: new Date(2016, 02, 17),
       comments: []
     }
   ]
