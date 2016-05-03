@@ -1,5 +1,18 @@
 angular.module('redditClone', [])
 .controller('PostController', function ($scope) {
+  $scope.newPost = {}
+  $scope.addPost = function () {
+    $scope.newPost.data = new Date()
+    $scope.newPost.votes = 0
+    $scope.newPost.comments = []
+    $scope.posts.push($scope.newPost)
+    $scope.newPost = {}
+    $scope.showForm = false;
+  }
+  $scope.showForm = false;
+  $scope.toggleForm = function () {
+    $scope.showForm = !$scope.showForm
+  }
   $scope.pluralize = function (number, word) {
     return number == 1 ? word : word + 's';
   };
