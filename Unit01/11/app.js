@@ -2,7 +2,7 @@ angular.module('redditClone', [])
 .controller('PostController', function ($scope) {
   $scope.newPost = {}
   $scope.addPost = function () {
-    $scope.newPost.data = new Date()
+    $scope.newPost.date = new Date()
     $scope.newPost.votes = 0
     $scope.newPost.comments = []
     $scope.posts.push($scope.newPost)
