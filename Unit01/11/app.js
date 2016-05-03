@@ -9,6 +9,13 @@ angular.module('redditClone', [])
   $scope.downvote = function (post) {
     post.votes -= 1
   }
+  $scope.reverse = function() {
+    if ($scope.order == 'votes' || $scope.order == 'date') {
+      return true;
+    } else {
+      return false;
+    };
+  };
   $scope.posts = [
     {
       title: 'Angora Bunny',
