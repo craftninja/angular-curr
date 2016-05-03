@@ -13,6 +13,11 @@ angular.module('redditClone', [])
   $scope.togglePostForm = function () {
     $scope.showPostForm = !$scope.showPostForm
   }
+
+  $scope.toggleComments = function (post) {
+    post.showComments = !post.showComments
+  }
+
   $scope.pluralize = function (number, word) {
     return number == 1 ? word : word + 's';
   };
@@ -38,7 +43,16 @@ angular.module('redditClone', [])
       description: 'Angora bunnies are awesome!',
       votes: 4,
       date: new Date(2016, 03, 02),
-      comments: []
+      comments: [
+        {
+          author: "Luke",
+          content: "Oh my god that bunny is cuuuuuuute."
+        },
+        {
+          author: "Jared",
+          content: "Totes Cute!"
+        },
+      ]
     },
     {
       title: 'Silkie Bantams',
