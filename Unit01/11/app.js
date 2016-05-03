@@ -7,11 +7,11 @@ angular.module('redditClone', [])
     $scope.newPost.comments = []
     $scope.posts.push($scope.newPost)
     $scope.newPost = {}
-    $scope.showForm = false;
+    $scope.showPostForm = false;
   }
-  $scope.showForm = false;
-  $scope.toggleForm = function () {
-    $scope.showForm = !$scope.showForm
+  $scope.showPostForm = false;
+  $scope.togglePostForm = function () {
+    $scope.showPostForm = !$scope.showPostForm
   }
   $scope.pluralize = function (number, word) {
     return number == 1 ? word : word + 's';

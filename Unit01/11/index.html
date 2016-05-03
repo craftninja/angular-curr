@@ -28,7 +28,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li ng-click="toggleForm()"><a>+ Submit Post</a></li>
+            <li ng-click="togglePostForm()"><a>+ Submit Post</a></li>
           </ul>
           <div class="navbar-form navbar-left">
             <div class="form-group">
@@ -47,7 +47,7 @@
       </div><!-- /.container-fluid -->
     </nav>
     <div class="container">
-      <form class="form-horizontal" ng-show="showForm">
+      <form class="form-horizontal" ng-show="showPostForm">
         <div class="form-group">
           <label for="title" class="col-sm-2 control-label">Title</label>
           <div class="col-sm-5">
