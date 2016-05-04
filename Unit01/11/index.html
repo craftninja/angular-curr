@@ -7,6 +7,8 @@
     <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-moment/0.10.3/angular-moment.min.js"></script>
     <script type="text/javascript" src="app.js">
 
     </script>
@@ -105,7 +107,7 @@
           </div>
           <div class="row">
             <p class="col-md-12">
-              <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> {{post.date | date}} |
+              <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> {{post.date | amCalendar:referenceTime:formats}} |
               <span ng-click="toggleComments(post)">
                 <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> {{post.comments.length + ' ' + pluralize(post.comments.length, 'comment')}}
               </span> |

@@ -1,4 +1,4 @@
-angular.module('redditClone', [])
+angular.module('redditClone', ['angularMoment'])
 .controller('PostController', function ($scope) {
   $scope.newPost = {}
   $scope.addPost = function () {
@@ -52,7 +52,7 @@ angular.module('redditClone', [])
       image: 'http://i.imgur.com/pcK1WSw.jpg',
       description: 'Angora bunnies are awesome!',
       votes: 4,
-      date: new Date(2016, 03, 02),
+      date: new Date(2016, 4, 4, 16, 26),
       comments: [
         {
           author: "Luke",
@@ -70,7 +70,7 @@ angular.module('redditClone', [])
       image: 'http://i.imgur.com/1pZLbDi.jpg',
       description: 'Silkie Bantams... they are chickens!?!?!',
       votes: 0,
-      date: new Date(2016, 01, 03),
+      date: new Date(2016, 4, 1, 11, 47),
       comments: []
     },
     {
@@ -79,7 +79,7 @@ angular.module('redditClone', [])
       image: 'http://i.imgur.com/zrSL8XK.jpg',
       description: 'Ugh, WTF is that',
       votes: -3,
-      date: new Date(2016, 02, 17),
+      date: new Date(2016, 4, 3, 19, 52),
       comments: []
     }
   ]
