@@ -17,7 +17,17 @@ angular.module('redditClone', [])
   $scope.toggleComments = function (post) {
     post.showComments = !post.showComments
   }
+  $scope.toggleCommentForm = function (post) {
+    post.showCommentForm = !post.showCommentForm
+  }
 
+  $scope.newComment = {};
+  $scope.addComment = function (post) {
+    post.comments.push($scope.newComment)
+    $scope.newComment = {};
+    post.showCommentForm = false;
+    post.showComments = true;
+  }
   $scope.pluralize = function (number, word) {
     return number == 1 ? word : word + 's';
   };
