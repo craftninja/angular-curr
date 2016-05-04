@@ -47,34 +47,39 @@
       </div><!-- /.container-fluid -->
     </nav>
     <div class="container">
-      <form class="form-horizontal" ng-show="showPostForm">
-        <div class="form-group">
+      <form name="postForm" class="form-horizontal" ng-show="showPostForm">
+        <div class="form-group" ng-class="{'has-error': postForm.title.$invalid && !postForm.title.$pristine}">
           <label for="title" class="col-sm-2 control-label">Title</label>
           <div class="col-sm-5">
-            <input type="text" class="form-control" id="title" ng-model="newPost.title">
+            <input name="title" type="text" class="form-control" id="title" ng-model="newPost.title" required>
           </div>
         </div>
-        <div class="form-group">
+        <div class="form-group" ng-class="{'has-error': postForm.author.$invalid && !postForm.author.$pristine}">
           <label for="author" class="col-sm-2 control-label">Author</label>
           <div class="col-sm-5">
-            <input type="text" class="form-control" id="author" ng-model="newPost.author">
+            <input name="author" type="text" class="form-control" id="author" ng-model="newPost.author" required>
           </div>
         </div>
-        <div class="form-group">
+        <div class="form-group" ng-class="{'has-error': postForm.image.$invalid && !postForm.image.$pristine}">
           <label for="image" class="col-sm-2 control-label">Image URL</label>
           <div class="col-sm-5">
-            <input type="url" class="form-control" id="image" ng-model="newPost.image">
+            <input name="image" type="url" class="form-control" id="image" ng-model="newPost.image" required>
+          </div>
+        </div>
+        <div class="form-group" ng-class="{'has-error': postForm.description.$invalid && !postForm.description.$pristine}">
+          <label for="description" class="col-sm-2 control-label">Description</label>
+          <div class="col-sm-5">
+            <input name="description" type="text" class="form-control" id="description" ng-model="newPost.description" required>
           </div>
         </div>
         <div class="form-group">
-          <label for="description" class="col-sm-2 control-label">Description</label>
-          <div class="col-sm-5">
-            <input type="text" class="form-control" id="description" ng-model="newPost.description">
-          </div>
+          <p ng-show="postForm.$invalid" class="col-sm-offset-2 text-danger col-sm-5">
+            Please fill out all fields
+          </p>
         </div>
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-default" ng-click="addPost()">Submit Post</button>
+            <button type="submit" class="btn btn-default" ng-click="addPost()" ng-disabled="postForm.$invalid">Submit Post</button>
           </div>
         </div>
       </form>
